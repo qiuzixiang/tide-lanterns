@@ -1,0 +1,17 @@
+import {build} from 'esbuild';
+import {mkdir,readFile,writeFile,cp,rm,readdir,stat} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const root=resolve(import.meta.dirname,'..');
+await writeFile(resolve(root,'src/notices.mjs'),'export const NOTICES='+JSON.stringify(await readFile(resolve(root,'THIRD_PARTY_NOTICES.md'),'utf8'))+';\n');
+await rm(resolve(root,'dist'),{recursive:true,force:true});
+await mkdir(resolve(root,'dist/assets'),{recursive:true});
+await build({entryPoints:[resolve(root,'src/app.mjs')],outfile:resolve(root,'dist/app.js'),bundle:true,format:'iife',target:['es2017','chrome61'],minify:true,legalComments:'none',define:{__XHS__:'false'}});
+await cp(resolve(root,'index.html'),resolve(root,'dist/index.html'));
+await cp(resolve(root,'styles.css'),resolve(root,'dist/styles.css'));
+for(const name of await readdir(resolve(root,'assets')))if(/\.(svg|png|webp|jpg|woff2?)$/.test(name))await cp(resolve(root,'assets',name),resolve(root,'dist/assets',name));
+const xhs=resolve(root,'releases/xiaohongshu');
+await rm(xhs,{recursive:true,force:true});await cp(resolve(root,'dist'),xhs,{recursive:true});
+await build({entryPoints:[resolve(root,'src/app.mjs')],outfile:resolve(xhs,'app.js'),bundle:true,format:'iife',target:['es2017','chrome61'],minify:true,legalComments:'none',define:{__XHS__:'true'}});
+let html=await readFile(resolve(xhs,'index.html'),'utf8');html=html.replace('<html lang="zh-CN">','<html lang="zh-CN" class="xhs">');await writeFile(resolve(xhs,'index.html'),html);
+const js=await stat(resolve(root,'dist/app.js'));
+console.log('Built website + offline Xiaohongshu package, app.js '+js.size+' bytes.');
