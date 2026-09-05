@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#143e45">
+  <meta name="description" content="旋转一段航路，唤醒一片海。48关灯塔修复之旅，每日航线与自由航行，静下来享受连接的乐趣。">
+  <title>潮汐灯塔 · 让每一座岛亮起来</title>
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="masthead">
+      <button class="brand" id="brand" aria-label="打开群岛航海图">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 37q19-8 38 0M9 43q15-7 30 0"/><path d="M16 34l4-21h8l4 21M17 23h14M18 30h12M18 13h12l-6-8z"/><path d="M12 16H5m31 0h7"/></svg>
+        <span><strong>潮汐灯塔</strong><small>TIDE LANTERNS</small></span>
+      </button>
+      <nav aria-label="航海导航">
+        <button id="map-btn" class="nav-btn">群岛航图</button>
+        <button id="daily-btn" class="nav-btn">今日航线</button>
+        <button id="help-btn" class="circle-btn" aria-label="图解玩法与规则">?</button>
+        <button id="settings-btn" class="circle-btn" aria-label="设置与来源">⚙</button>
+      </nav>
+    </header>
+    <main id="main" class="main-layout">
+      <aside class="voyage-panel">
+        <div class="eyebrow"><span class="live-dot"></span> THE ARCHIPELAGO JOURNAL</div>
+        <h1>让每一座岛<br>亮起来<span class="title-dot">。</span></h1>
+        <p class="intro-copy">转动一段航路，让温暖的光<br>穿过海雾，回到远方的灯塔。</p>
+        <div class="journey-summary">
+          <div><strong id="restored-count">0</strong><span> / 48 航线已修复</span></div>
+          <div class="progress-track"><i id="overall-progress"></i></div>
+        </div>
+        <section class="island-card" aria-label="当前群岛">
+          <div class="island-art" aria-hidden="true"></div>
+          <div class="island-copy"><span id="chapter-number" class="eyebrow">CHAPTER 01</span><h2 id="chapter-title">风起的港湾</h2><p id="chapter-story"></p></div>
+        </section>
+        <div class="chapter-ribbon" id="chapter-ribbon" aria-label="选择群岛"></div>
+        <button class="journal-link" id="collection-btn"><span>◈ 航海收藏</span><span id="collection-count">0 / 6 →</span></button>
+        <p class="quiet-note">没有倒计时。跟着光，慢慢来。</p>
+      </aside>
+      <section id="play-panel" class="play-panel" aria-label="灯塔航路棋盘">
+        <div class="level-heading">
+          <div><span class="eyebrow" id="level-kicker">第一片海 · 01 / 08</span><h2 id="level-name">初次点灯</h2></div>
+          <button id="level-picker" class="level-index" aria-label="打开关卡选择">01<span> / 48</span></button>
+        </div>
+        <div class="board-status"><span><i class="signal-light"></i><strong id="powered-count">1 / 16</strong> 航标亮起</span><span id="move-count">0 次转动</span></div>
+        <div class="sea-board-wrap" id="sea-board-wrap">
+          <div class="compass-mark" aria-hidden="true">N</div>
+          <div id="board" class="board" role="group" aria-label="旋转航路棋盘"></div>
+          <div class="water-lines" aria-hidden="true">﹏　﹏　﹏</div>
+        </div>
+        <div class="board-caption"><span id="instruction">轻点转动 · 接口相对，光就会经过</span><button id="reverse-btn" aria-pressed="false" title="切换旋转方向">↻ 顺转</button></div>
+        <div class="tools" aria-label="航路工具">
+          <button id="undo-btn" disabled><span class="tool-icon">↶</span><span>撤销</span></button>
+          <button id="redo-btn" disabled><span class="tool-icon">↷</span><span>重做</span></button>
+          <button id="lock-btn" aria-pressed="false"><span class="tool-icon"><svg viewBox="0 0 24 24" width="21" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3M12 14v3"/></svg></span><span>锁定</span></button>
+          <button id="hint-btn"><span class="tool-icon">✧</span><span>提示</span></button>
+          <button id="reset-btn"><span class="tool-icon">⟳</span><span>重来</span></button>
+        </div>
+        <div class="captain-note"><span class="note-icon">✦</span><p id="level-briefing">先看看海图边缘：光缆不能朝向海图之外。</p><button id="rules-btn" aria-label="查看完整规则">图解 →</button></div>
+        <div class="legend" aria-label="图例"><span><i class="legend-root">◆</i>主灯塔</span><span><i class="legend-lit">●</i>已通电</span><span><i class="legend-dark">○</i>待连接</span><span><i class="legend-lock">⌑</i>已锁定</span></div>
+      </section>
+    </main>
+    <footer class="footer"><span>潮起潮落，灯火常明。</span><button id="free-btn">自由航行 <span>↗</span></button></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop"></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <div class="modal-top"><span class="eyebrow" id="modal-kicker">灯塔手记</span><button id="modal-close" class="circle-btn" aria-label="关闭弹窗">×</button></div>
+      <div id="modal-body" class="modal-body"></div>
+      <div id="modal-actions" class="modal-actions"></div>
+    </section>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

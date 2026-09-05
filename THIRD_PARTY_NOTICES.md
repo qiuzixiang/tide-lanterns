@@ -1,0 +1,126 @@
+# Third-party notices · 潮汐灯塔
+
+本项目保留经典 Net 规则来源和直接前身代码的许可。规则、参考实现、直接衍生代码与新主题是不同来源层次，不能互相替代。具体版本、实际读取证据和文件指纹见 [docs/provenance.md](docs/provenance.md)。
+
+## 直接前身：Ten Realms Arcade / Storm Lanterns
+
+潮汐灯塔的 JavaScript 规则实现基于已有合集 [Ten Realms Arcade](https://github.com/qiuzixiang/ten-realms-arcade) 的 `games/storm-lanterns/logic.mjs` 继续开发。已核对的前身文件版本为 `959a1307f0675f2ca8f25c9f7be0d27330eaa7fd`。本项目不是本轮从零编写整个引擎，也不声称 Net 规则原创。
+
+原有版权行与完整 MIT 正文保留于根 [LICENSE](LICENSE)。除另有逐项声明的内容外，潮汐灯塔项目代码、主题、文案、界面和自制素材沿用此 MIT 许可。新增素材应有实际来源记录，不能据此将他人资产误标为原创。
+
+## 规则权威来源：Simon Tatham's Portable Puzzle Collection
+
+- [Net 官方手册](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/doc/net.html)
+- [Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)
+- [上游源码仓库](https://git.tartarus.org/?p=simon/puzzles.git)
+
+Net 的核心玩法是原位旋转拼块，组成完全连通、无闭环的网络。本版采用非回绕、无附加屏障、发布题须验证唯一解的参数范围。Simon Tatham 的手册另致谢其最初见到的 **FreeNet，作者 Pavils Jurjans**，并提到 NetWalk 的其他实现；这里保留规则历史，不使用这些作品的代码、图像或品牌作为本产品素材。
+
+## 中文规则与网页交互研究：ebnbin/puzzles
+
+固定参考快照为 [ebnbin/puzzles@5a9e1795a3324e0f6433b79fbe31cbd9b12048a3](https://github.com/ebnbin/puzzles/tree/5a9e1795a3324e0f6433b79fbe31cbd9b12048a3)。实际核对 `doc-zh/net.html`、`vendor/sgtpuzzles/net.c` 和 `src/games/net.ts`，用于规则语义、参数与触摸/键盘研究。
+
+该仓库根文件名为 **LICENCE**，适用于 `vendor/sgtpuzzles/` 以外的网页前端；`vendor/sgtpuzzles/LICENCE` 单独约束 Portable Puzzle Collection。两者均为 MIT，版权归属不同，不以其中一份覆盖全部上游来源。
+
+本次没有复制上述 C 引擎、TS 前端、WebAssembly、React 运行时或上游美术到产品；本项目的实际代码衍生链是本地已有 Storm Lanterns JavaScript。下列许可原文作为来源与许可记录保留，不表示捆绑未使用的软件，也不表示上游作者为本游戏背书。
+
+## 本项目与直接前身 MIT 原文
+
+```text
+MIT License
+
+Copyright (c) 2026 Ten Realms Arcade contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## Portable Puzzle Collection MIT 原文
+
+以下来自上述固定快照的 `vendor/sgtpuzzles/LICENCE`：
+
+```text
+This software is copyright (c) 2004-2024 Simon Tatham.
+
+Portions copyright Richard Boulton, James Harvey, Mike Pinna, Jonas
+Kölker, Dariusz Olszewski, Michael Schierl, Lambros Lambrou, Bernd
+Schmidt, Steffen Bauer, Lennard Sprong, Rogier Goossens, Michael
+Quevillon, Asher Gordon, Didi Kohen and Ben Harris.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation files
+(the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## ebnbin 网页前端 MIT 与适用范围原文
+
+以下来自上述固定快照的根 `LICENCE`：
+
+```text
+MIT License
+
+Copyright (c) 2026 ebnbin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This licence covers the web front end in this repository — everything outside
+vendor/sgtpuzzles/.
+
+The puzzles themselves are Simon Tatham's Portable Puzzle Collection, the work
+of Simon Tatham and many contributors, and are distributed under their own MIT
+licence. See vendor/sgtpuzzles/LICENCE, which is the one that governs that
+directory and the WebAssembly built from it.
+```
+
+## 网页与小红书分发
+
+源仓库保留本文件和根 LICENSE。离线 ZIP 的扩展名白名单不接受 Markdown 或无扩展名 LICENSE，因此最终包应在可访问的关于/来源视图与适合的包内静态 JSON 中保留相应完整许可和致谢；不得为适配离线限制只剩一个无法打开的许可链接。小红书内的来源 URL 以普通文字呈现，不发起站外跳转。

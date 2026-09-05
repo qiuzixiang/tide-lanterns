@@ -1,0 +1,14 @@
+{
+  "name": "tide-lanterns",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "潮汐灯塔：旋转航路，点亮群岛。48关独立逻辑游戏。",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node tools/build.mjs",
+    "generate": "node tools/generate-campaign.mjs",
+    "dev": "npm run build && python3 -m http.server 4196 --bind 127.0.0.1 --directory dist"
+  },
+  "devDependencies": { "esbuild": "0.27.0", "acorn": "8.18.0" }
+}

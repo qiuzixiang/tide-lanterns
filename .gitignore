@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vercel/
+.DS_Store
+releases/*.zip
+qa/
+releases/xiaohongshu/
+.vercel
