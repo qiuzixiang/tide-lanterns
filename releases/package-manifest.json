@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "zip": "tide-lanterns-xiaohongshu-1.0.0.zip",
+  "bytes": 288261,
+  "sha256": "a2a9e5c00b4ea103233ebb5006c4298c56fd311b503cab4564ae20aeefa31958",
+  "files": [
+    "app.js",
+    "assets/archipelago.webp",
+    "assets/collectible-bell.svg",
+    "assets/collectible-bottle.svg",
+    "assets/collectible-compass.svg",
+    "assets/collectible-lighthouse.svg",
+    "assets/collectible-shell.svg",
+    "assets/collectible-whale.svg",
+    "assets/icon-512.png",
+    "assets/icon.svg",
+    "index.html",
+    "styles.css"
+  ]
+}
